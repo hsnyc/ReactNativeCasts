@@ -11,13 +11,16 @@ import {
   Text,
   View
 } from 'react-native';
+import Header from './src/components/header';
 
 export default class albums1 extends Component {
   render() {
     return (
       <View style={styles.container}>
+
+        <Header />
         <Text style={styles.welcome}>
-          Welcome to React Native, {'\n'}ok LIVE reloading Boyaaa!!!
+          Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
