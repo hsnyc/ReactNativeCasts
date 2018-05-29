@@ -25,7 +25,7 @@ const styles = {
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2, //for iOS
         elavation: 2, //for Android
-        position: 'relative' 
+        position: 'relative'
     },
     textStyle: {
         fontSize: 20,
