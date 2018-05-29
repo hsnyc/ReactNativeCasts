@@ -14,8 +14,14 @@ export default AlbumList;
 
 
 //Class Based Componet
-class Header extends Component {
-    render () {
-        return <Text>Hi There! </Text>
+class AlbumList extends Component {
+    render() {
+        return (
+            <View>
+                <Text>Album List!! </Text>
+            </View>
+        );
     }
 }
+
+export default AlbumList;
