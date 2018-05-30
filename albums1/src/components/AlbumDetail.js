@@ -1,6 +1,6 @@
 //Functional Componet
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, Linking } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
@@ -8,7 +8,7 @@ import Button from './Button';
 //Class Based Componet
 const AlbumDetail = ({ album }) => {
     //de-structure props and styles object
-    const { title, artist, thumbnail_image, image } = album;
+    const { title, artist, thumbnail_image, image, url } = album;
     const {
         thumbnailStyle,
         headerContentStyle,
@@ -37,7 +37,7 @@ const AlbumDetail = ({ album }) => {
             </CardSection>
 
             <CardSection>
-                <Button whenPressed={() => console.log(title)} />
+                <Button whenPressed={() => Linking.openURL(url)} />
             </CardSection>        
         </Card>
     );
