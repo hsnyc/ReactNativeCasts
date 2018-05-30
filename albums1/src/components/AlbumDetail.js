@@ -37,7 +37,9 @@ const AlbumDetail = ({ album }) => {
             </CardSection>
 
             <CardSection>
-                <Button whenPressed={() => Linking.openURL(url)} />
+                <Button whenPressed={() => Linking.openURL(url)}>
+                    Buy Now
+                </Button>
             </CardSection>        
         </Card>
     );
