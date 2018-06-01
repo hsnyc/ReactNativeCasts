@@ -1,8 +1,9 @@
 //Functional Componet
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { Header } from './components/common';
 import firebase from 'firebase';
+import LoginForm from './components/LoginForm';
 
 class App extends Component {
     //lifecycle method
@@ -21,7 +22,7 @@ class App extends Component {
         return (
             <View>
                 <Header headerText="Authentication" />
-                <Text>Auth</Text>
+                <LoginForm />
             </View>
         );
     }
