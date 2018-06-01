@@ -4,7 +4,7 @@ import { Button, Card, CardSection, Input } from './common';
 //Class Based Componet
 class LoginForm extends Component {
 
-    state = { text: '' };
+    state = { email: '', password: '' };
 
     render() {
         return (
@@ -13,11 +13,21 @@ class LoginForm extends Component {
                     <Input 
                         placeholder="user@gmail.com"
                         label="Email"
-                        value={this.state.text}
-                        onChangeText={text => this.setState({ text })}
+                        value={this.state.email}
+                        onChangeText={email => this.setState({ email })}
                     />
                 </CardSection>
-                <CardSection />
+
+                <CardSection>
+                    <Input
+                        placeholder="Your Secret Password"
+                        label="Password"
+                        secureTextEntry
+                        value={this.state.password}
+                        onChangeText={password => this.setState({ password })}
+                    />
+                </CardSection>
+
                 <CardSection>
                     <Button>Login</Button>
                 </CardSection>
