@@ -32,17 +32,21 @@ class App extends Component {
         // console.log(this.state.loggedIn);
         switch(this.state.loggedIn) {
             case true:
-                return <CardSection>
-                            <Button>Log Out</Button>
-                       </CardSection>
+                return (
+                    <CardSection>
+                        <Button whenPressed={() => firebase.auth().signOut()}>Log Out</Button>
+                    </CardSection>
+                );
 
             case false:
                 return <LoginForm />;
 
             default:
-                return <CardSection>
-                            <Spinner size="large" />
-                       </CardSection>
+                return (
+                    <CardSection>
+                        <Spinner size="large" />
+                    </CardSection>
+                );
         }        
     }
 
