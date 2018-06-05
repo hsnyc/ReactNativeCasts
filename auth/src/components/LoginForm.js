@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
+import firebase from 'firebase';
 import { Button, Card, CardSection, Input } from './common';
-import { firestore } from 'firebase';
+
 
 //Class Based Componet
 class LoginForm extends Component {
-
-    state = { email: '', password: '' };
+    state = { email: '', password: '', error: '' };
 
     onButtonPress() {
         const { email, password } = this.state;
+
+        this.setState({ error: '' });
 
         firebase.auth().signInWithEmailAndPassword(email, password)
         //If failed login, create an account    
