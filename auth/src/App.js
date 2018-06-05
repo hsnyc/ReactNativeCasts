@@ -1,12 +1,12 @@
 //Functional Componet
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Header, Button } from './components/common';
+import { Header, Button, Spinner, CardSection } from './components/common';
 import firebase from 'firebase';
 import LoginForm from './components/LoginForm';
 
 class App extends Component {
-    state = { loggedIn: false };
+    state = { loggedIn: null };
 
     //lifecycle method
     componentWillMount() {
@@ -29,15 +29,19 @@ class App extends Component {
     }
 
     renderContent() {
-        if(this.state.loggedIn) {
-            return (
-                <Button>
-                    Log Out
-                </Button>
-            );
-        }
+        // console.log(this.state.loggedIn);
+        switch(this.state.loggedIn) {
+            case true:
+                return <CardSection>
+                            <Button>Log Out</Button>
+                       </CardSection>
 
-        return <LoginForm />;
+            case false:
+                return <LoginForm />;
+
+            default:
+                return <Spinner size="large" />;
+        }        
     }
 
     render() {
