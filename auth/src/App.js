@@ -40,7 +40,9 @@ class App extends Component {
                 return <LoginForm />;
 
             default:
-                return <Spinner size="large" />;
+                return <CardSection>
+                            <Spinner size="large" />
+                       </CardSection>
         }        
     }
 
