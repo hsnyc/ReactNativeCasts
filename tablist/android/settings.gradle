@@ -1,0 +1,3 @@
+rootProject.name = 'tablist'
+
+include ':app'
