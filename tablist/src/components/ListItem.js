@@ -6,7 +6,7 @@ class ListItem extends Component {
     render() {
         return (
             <CardSection>
-                <Text>{this.props.library.title}</Text>
+                <Text>{this.props.library.item.title}</Text>
             </CardSection>
         );
     }
