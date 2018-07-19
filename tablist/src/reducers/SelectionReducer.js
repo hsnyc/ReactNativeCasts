@@ -1,3 +1,5 @@
+//this reducer handles the selected item state
+
 export default (state = null, action) => {
     //console.log(action);
     switch (action.type) {
