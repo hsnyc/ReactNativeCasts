@@ -1,4 +1,4 @@
-import { EMAIL_CHANGED } from './types';
+import { EMAIL_CHANGED, PASSWORD_CHANGED } from './types';
 
 // this function is an action creator, a plain javascript function that returns actions 
 export const emailChanged = (text) => {
@@ -8,5 +8,12 @@ export const emailChanged = (text) => {
     return {
         type: EMAIL_CHANGED,
         payload: text
+    };
+};
+
+export const passwordChanged = (pw) => {
+    return {
+        type: PASSWORD_CHANGED,
+        payload: pw
     };
 };
