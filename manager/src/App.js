@@ -4,6 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import firebase from 'firebase';
 import reducers from './reducers';
+import LoginForm from './components/loginForm';
 
 class App extends Component {
 
@@ -26,9 +27,7 @@ class App extends Component {
             //Provider is what connects to the connect tags and makes sure those tags have access to the store to grab the redux state and passes to all the components in the app.
             //Must provide a default reducer to get initial app state.
             <Provider store={createStore(reducers)}>
-                <View>
-                    <Text>Hello!</Text>
-                </View>
+                <LoginForm />
             </Provider>
         );
     }
