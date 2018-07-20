@@ -60,8 +60,8 @@ const styles = {
     }
 };
 
-//provides application level state to the component level
-//provides the component with the state as a prop. Sort of like plucking properties out of our state object and injecting them into our components.
+//mapStateToProps provides application level state to the component level
+//also provides the component with the state as a prop. Sort of like plucking properties out of our state object and injecting them into our components.
 //Note: everytime the application state changes, the mapStateToProps function will re-run passing a new set of props to our components which causes the components to re-render.
 const mapStateToProps = (state, ownProps) => {
     const expanded = state.selectedLibraryId === ownProps.library.item.id;
