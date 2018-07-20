@@ -10,6 +10,7 @@ class loginForm extends Component {
     }
 
     render() {
+        //console.log(this.props.email);
         return (
             <Card>
                 <CardSection>
@@ -17,6 +18,7 @@ class loginForm extends Component {
                         label="Email"
                         placeholder="email@gmail.com"
                         onChangeText={this.onEmailChange.bind(this)}
+                        value={this.props.email} // lets tell this input what the value should be ..Yeah!
                     />
                 </CardSection>
 
@@ -38,4 +40,13 @@ class loginForm extends Component {
     }
 }
 
-export default connect(null, { emailChanged })(loginForm);
+//get the state back to this component via mapStateToProps.
+//This will make the state available as a props inside the component. i.e this.props.email
+const mapStateToProps = state => {
+    //console.log(state.auth.email);
+    return {
+        email: state.auth.email
+    };
+};
+
+export default connect(mapStateToProps, { emailChanged })(loginForm);
