@@ -32,7 +32,7 @@ class loginForm extends Component {
                         label="Password"
                         placeholder="Password"
                         onChangeText={this.onPasswordChange.bind(this)}
-                        value={this.props.password}
+                        value={this.props.password} // lets tell this input what the value should be.. boyaa!
                     />
                 </CardSection>
 
