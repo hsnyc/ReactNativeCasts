@@ -1,4 +1,5 @@
 import { EMAIL_CHANGED, PASSWORD_CHANGED } from './types';
+import firebase from 'firebase';
 
 // this function is an action creator, a plain javascript function that returns actions 
 export const emailChanged = (text) => {
@@ -16,4 +17,10 @@ export const passwordChanged = (pw) => {
         type: PASSWORD_CHANGED,
         payload: pw
     };
+};
+
+//to log in our users
+export const loginUser = ({ email, password }) => {
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(user => console.log(user));
 };
