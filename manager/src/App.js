@@ -22,7 +22,7 @@ class App extends Component {
         firebase.initializeApp(config);
     }
 
-    render () {
+    render() {
         return (
             //Provider is what connects to the connect tags and makes sure those tags have access to the store to grab the redux state and passes to all the components in the app.
             //Must provide a default reducer to get initial app state.
