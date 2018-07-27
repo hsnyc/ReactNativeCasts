@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input, Button } from './common';
@@ -18,6 +19,18 @@ class loginForm extends Component {
         const { email, password } = this.props;
 
         this.props.loginUser({ email, password });
+    }
+
+    renderError() {
+        if (this.props.error) {
+            return (
+                <View style={{ backgroundColor: 'White' }}>
+                    <Text style={styles.errorTextStyle}>
+                        {this.props.error}
+                    </Text>
+                </View>
+            );
+        }
     }
 
     render() {
@@ -43,6 +56,8 @@ class loginForm extends Component {
                     />
                 </CardSection>
 
+                {this.renderError()}
+
                 <CardSection>
                     <Button onPress={this.onButtonPress.bind(this)}>
                         Login
@@ -53,13 +68,22 @@ class loginForm extends Component {
     }
 }
 
+const styles = {
+    errorTextStyle: {
+        fontSize: 20,
+        alignSelf: 'center',
+        color: 'red'
+    }
+};
+
 //get the state back to this component via mapStateToProps.
 //This will make the state available as a props inside the component. i.e this.props.email
 const mapStateToProps = state => {
     //console.log(state.auth.email);
     return {
         email: state.auth.email,
-        password: state.auth.password
+        password: state.auth.password,
+        error: state.auth.error
     };
 };
 
