@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { Card, CardSection, Input, Button } from './common';
+import { Card, CardSection, Input, Button, Spinner } from './common';
 
 class loginForm extends Component {
 
@@ -33,6 +33,18 @@ class loginForm extends Component {
         }
     }
 
+    renderButton() {
+        if (this.props.loading) {
+            return <Spinner size="large" />;
+        }
+
+        return (
+            <Button onPress={this.onButtonPress.bind(this)}>
+                Login
+            </Button>
+        );      
+    }
+
     render() {
         //console.log(this.props.email);
         return (
@@ -59,9 +71,7 @@ class loginForm extends Component {
                 {this.renderError()}
 
                 <CardSection>
-                    <Button onPress={this.onButtonPress.bind(this)}>
-                        Login
-                    </Button>
+                    {this.renderButton()}
                 </CardSection>
             </Card>
         );
@@ -78,13 +88,12 @@ const styles = {
 
 //get the state back to this component via mapStateToProps.
 //This will make the state available as a props inside the component. i.e this.props.email
-const mapStateToProps = state => {
+const mapStateToProps = ({ auth }) => {
     //console.log(state.auth.email);
-    return {
-        email: state.auth.email,
-        password: state.auth.password,
-        error: state.auth.error
-    };
+
+    const { email, password, error, loading } = auth;
+
+    return { email, password, error, loading };
 };
 
 export default connect(mapStateToProps, {
