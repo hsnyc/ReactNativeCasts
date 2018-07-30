@@ -5,7 +5,7 @@ import ReduxThunk from 'redux-thunk'; //middleware
 import reducers from './reducers';
 import LoginForm from './components/loginForm';
 import Router from './Router';
-import firebase from 'firebase';
+import firebase from 'firebase'; //moved to end due to compiling error on Android emulator.
 
 class App extends Component {
 
