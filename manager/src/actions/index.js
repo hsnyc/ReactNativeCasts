@@ -54,5 +54,5 @@ const loginUserSuccess = (dispatch, user) => {
     });
     
     //go to this scene after log-in.
-    Actions.employeeList();
+    Actions.main();
 };
