@@ -4,7 +4,8 @@ import { Text, View } from 'react-native';
 
 const CardSection = (props) => {
     return (
-        <View style={styles.containerStyles} >
+        //using an array in order to overwrite style props
+        <View style={[styles.containerStyles, props.style]} >
             {props.children}
         </View>
     );
