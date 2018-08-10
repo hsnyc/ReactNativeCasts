@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import firebase from 'firebase';
 import ReduxThunk from 'redux-thunk'; //middleware
 import reducers from './reducers';
 import LoginForm from './components/loginForm';
+import Router from './Router';
+import firebase from 'firebase'; //moved to end due to compiling error on Android emulator.
 
 class App extends Component {
 
@@ -27,7 +28,7 @@ class App extends Component {
             //Provider is what connects to the connect tags and makes sure those tags have access to the store to grab the redux state and passes to all the components in the app.
             //Must provide a default reducer to get initial app state.
             <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
-                <LoginForm />
+                <Router />
             </Provider>
         );
     }
